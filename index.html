@@ -13,7 +13,7 @@
     <title>WatsApp Web</title>
 </head>
 <body>
-    <main>
+    <main id="root">
         <div class="container">
             <div class="row">
                 <div class="col-1">
@@ -47,41 +47,18 @@
                         
                         <div class="contacts-box">
                             <ul>
-                                <li>
-                                    <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div class="user-chat-info">
-                                            <h3>Sara</h3>
-                                            <p>Ultimo messaggio inviato</p>
-                                            <span>12:00</span>
-                                        </div>
+                                <template v-for="contatto in contatti">
+                                    <li>
+                                    <img class="background-circle" :src="contatto.avatar" alt="">
+                                    <div class="user-chat-info">
+                                        <h3>{{contatto.name}}</h3>
+                                        <p>Ultimo messaggio inviato</p>
+                                        <span>12:00</span>
+                                    </div>
                                 </li>
-                                <li>
-                                    <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div class="user-chat-info">
-                                            <h3>Sara</h3>
-                                            <p>ultimo messaggio inviato</p>
-                                            <span>12:00</span>
-                                        </div>
-                                </li>
-                                <li>
-                                    <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div class="user-chat-info">
-                                            <h3>Sara</h3>
-                                            <p>ultimo messaggio inviato</p>
-                                            <span>12:00</span>
-                                        </div>
-                                </li>
-                                <li>
-                                    <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div class="user-chat-info">
-                                            <h3>Sara</h3>
-                                            <p>ultimo messaggio inviato</p>
-                                            <span>12:00</span>
-                                        </div>
-                                </li>
-
+                                </template>
                             </ul>
-                        </div>
+                       
                     </aside>
                 </div>
                 <div class="col-2">
@@ -102,36 +79,23 @@
                     </div>
                     <div class="box-chat">
                         <div class="row">
-                            <div class="col-50">
-                                <div class="container-messages">
-                                    <ul class="message-received">
-                                        <li class="message-sent">
-                                            <p></p>
-                                            <span></span>
-                                        </li>
-                                        <li class="message-sent">
-                                            <p></p>
-                                            <span></span>
-                                        </li>
-                                        <li class="message-sent">
-                                            <p>bene io e tu?</p>
-                                            <span>12:00</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-50">
-                                <ul class="container-messages">
-                                    <li class="message-sent">
+                            <ul class="container-messages">
+                                <li class="message-received">    
+                                    <p>bene io e tu?</p>
+                                    <span>12:00</span>
+                                </li>
+                            </ul>
+                            <ul class="container-messages">
+                                <li class="message-sent">
                                         <p>ciao come stai?</p>
                                         <span>12:00</span>
-                                    </li>
-                                    <li class="message-sent">
+                                </li>
+                                <li class="message-sent">
                                         <p>Ti ricordi di me?</p>
                                         <span>12:00</span>
-                                    </li>
-                                </ul>
-                            </div>
+                                </li>
+                            </ul>
+                            
                         </div>
                     </div>
                     <div class="footer-chat">
