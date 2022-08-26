@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>WatsApp Web</title>
 </head>
 <body>
     <main>
@@ -28,9 +31,9 @@
                             
                         </div>
                         <div class="notifiche-box">
-                            <div class="notifiche">
+                            <div class="notifiche-icon">
                                 <i class="fa-solid fa-bell-slash background-circle"></i>
-                                <div>
+                                <div class="notifiche">
                                     <p>Ricevi notifiche di nuovi messaggi</p>
                                     <a href="#nogo">attiva notifiche desktop</a>
                                 </div>
@@ -39,61 +42,102 @@
                         </div>
                         <div class="search-bar">
                             <button type="submit"><i class="fa fa-search"></i></button>
-                            <input type="text" placeholder="Search.." name="search" class="search">
+                            <input type="text" placeholder="  Cerca o inizia una nuova chat" name="search" class="search">
                         </div>
                         
                         <div class="contacts-box">
                             <ul>
                                 <li>
                                     <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div>
+                                        <div class="user-chat-info">
                                             <h3>Sara</h3>
-                                            <p>ultimo messaggio inviato</p>
+                                            <p>Ultimo messaggio inviato</p>
                                             <span>12:00</span>
-                                            </div>
+                                        </div>
                                 </li>
                                 <li>
                                     <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div>
+                                        <div class="user-chat-info">
                                             <h3>Sara</h3>
                                             <p>ultimo messaggio inviato</p>
                                             <span>12:00</span>
-                                            </div>
+                                        </div>
                                 </li>
                                 <li>
                                     <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div>
+                                        <div class="user-chat-info">
                                             <h3>Sara</h3>
                                             <p>ultimo messaggio inviato</p>
                                             <span>12:00</span>
-                                            </div>
+                                        </div>
                                 </li>
                                 <li>
                                     <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div>
+                                        <div class="user-chat-info">
                                             <h3>Sara</h3>
                                             <p>ultimo messaggio inviato</p>
                                             <span>12:00</span>
-                                            </div>
+                                        </div>
                                 </li>
-                                <li>
-                                    <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                                        <div>
-                                            <h3>Sara</h3>
-                                            <p>ultimo messaggio inviato</p>
-                                            <span>12:00</span>
-                                            </div>
-                                </li>
+
                             </ul>
                         </div>
                     </aside>
                 </div>
                 <div class="col-2">
                     <div class="header-chat">
-                        <img class="background-circle" src="./img/myAvatar-2.png" alt="">
-                        <h3>Sara</h3>
-                        <p>ultimo accesso oggi alle 12:00</p>
-                        
+                        <div class="info-chat">
+                            <img class="background-circle" src="./img/myAvatar-2.png" alt="">
+                            <div>
+                                <h3>Sara</h3>
+                                <p>Ultimo accesso oggi alle 12:00</p>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <i class="fa fa-search"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="box-chat">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="container-messages">
+                                    <ul class="message-received">
+                                        <li class="message-sent">
+                                            <p></p>
+                                            <span></span>
+                                        </li>
+                                        <li class="message-sent">
+                                            <p></p>
+                                            <span></span>
+                                        </li>
+                                        <li class="message-sent">
+                                            <p>bene io e tu?</p>
+                                            <span>12:00</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-50">
+                                <ul class="container-messages">
+                                    <li class="message-sent">
+                                        <p>ciao come stai?</p>
+                                        <span>12:00</span>
+                                    </li>
+                                    <li class="message-sent">
+                                        <p>Ti ricordi di me?</p>
+                                        <span>12:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-chat">
+                        <i class="fa-solid fa-face-laugh"></i>
+                        <input type="text" placeholder="scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
             </div>
