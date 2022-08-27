@@ -10,40 +10,42 @@ ul, li, menu, a {
 }
 
 :root {
-    --grayL: #EAEAEA;
-    --bgcircle: #F2F2F2;
+    --grayL: rgba(234,234,234,255);
+    --bgcircle: rgba(242,242,242,255);
     --blu: #8EDAFC;
     --selectGray: #E9EBEB;
-    --grayIcon: #B1B1B1;
-  }
+    --grayIcon: rgba(177,177,200,255);
+}
+
+img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.fa-solid, button{
+    cursor: pointer;
+}
+/********************* setup template *******************/
 body{
-    /* display: flex;
-    justify-content: center;
-    align-items: center;   */
-    height: 100vh;
+    height: calc(100vh);
     font-family: 'Roboto', sans-serif;
+    background: rgb(175,175,175);
+    background: linear-gradient(360deg, rgba(217,219,213,255) 70%, rgba(0,150,136,255) 65%);
+    padding-top: 25px;
 }
 
 .container{
     max-width: 1500px;
     margin: 0 auto;
     height: calc(100vh - 50px);
-    margin-top: 25px;
-    border: 1px solid #e7e7e7;
-}
-
-img{
-    width: 100%;
 }
 
 .row{
     display: flex;
     flex-wrap: wrap;
 }
-
 .col-1{
     flex-basis: calc(100% / 3);
-    
 }
 .col-2{
     flex-grow: 1;
@@ -52,6 +54,7 @@ img{
     height: calc(100vh - 50px);
 }
 
+/************************** AsideBar ****************************/
 .principal-user{
     display: flex;
     align-items: center;
@@ -70,7 +73,8 @@ h3{
     align-items: center;
 }
 
-.principal-user-icon .fa-solid{
+.principal-user-icon .fa-solid,
+.icons-chat .fa-solid{
     padding:  7px;
     font-size: 18px;
     color: var(--grayIcon);
@@ -115,11 +119,13 @@ h3{
 .notifiche a{
     font-size: 12px;
     text-decoration: underline;
+    color: rgba(96,137,149,255);
 }
 
 .search-bar{
     padding: 5px;
     display: flex;
+    background-color: rgba(250,250,250,255);
 }
 
 .search-bar button{
@@ -127,7 +133,7 @@ h3{
     background-color: white;
     padding: 10px;
     font-size: 18px;
-    color: #B6B9BB;
+    color: var(--grayIcon);
 }
 .search{
     width: 100%;
@@ -139,13 +145,16 @@ h3{
     display: flex;
     position: relative;
     border-bottom: 1px solid #e7e7e7;
+    background-color: #ffffff;
+}
+.contacts-box li:hover{
+background-color: rgba(233,235,235,255);
 }
 
 .contacts-box li span{
     position: absolute;
     top: 10px;
     right: 5px;
-    
 }
 
 .user-chat-info{
@@ -161,9 +170,7 @@ h3{
     color: #b0bdcc;
     font-size: 12px;
 }
-
-
-/* ********************************************* */
+/*************** boxChat *****************/
 
 .header-chat{
     display: flex;
@@ -171,6 +178,7 @@ h3{
     background-color: var(--grayL);
     padding: 10px 15px;
     justify-content: space-between;
+    border-left: 1px solid #c6c4c4;
 }
 
 .info-chat{
@@ -183,8 +191,9 @@ h3{
 
 .footer-chat{
     display: flex;
-    padding: 5px 12px;
+    padding: 15px 20px;
     align-items: center;
+    background-color: rgba(243,238,234,255);
 }
 
 .footer-chat input{
@@ -192,13 +201,12 @@ h3{
    margin: 0 10px;
    border-radius: 3px;
    border: 1px solid #b0bdcc;
-   line-height: 30px;
+   line-height: 35px;
 }
 
 .box-chat{
     background-image: url(../img/istockphoto-1183632265-612x612.jpg);
-    flex-grow: 1;
-    opacity: 0.6;
+    flex-grow: 1;  
 }
 
 .container-messages{
@@ -247,4 +255,8 @@ h3{
     position: relative;
 }
 
+.footer-chat .fa-solid{
+    color: gray;
+    font-size: 20px;
+}
 
