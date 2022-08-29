@@ -82,12 +82,10 @@ const app = new Vue ({
         contatti,
         active: 0,
         newMessage: ''
-        
     },
     computed:{
         getMessages: function(){
             return this.contatti[this.active].messages
-            
         }
     },
     methods: {
@@ -105,16 +103,14 @@ const app = new Vue ({
             this.newMessage = ''
             this.AutomaticAnswer()          
            },
-           AutomaticAnswer(){
-            setTimeout(function(){
+        AutomaticAnswer(){
+            setTimeout(() => {
                 this.getMessages.push({
                     date: '10/01/2020 15:30:56',
                     message: 'ok',
                     status: 'received'
                         })
              }, 1000);
-            
-           },
-        
+        }    
     },
 })
