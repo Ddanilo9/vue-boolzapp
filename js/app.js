@@ -81,6 +81,7 @@ const app = new Vue ({
     data: {
         contatti,
         active: 0,
+        newMessage: ''
         
     },
     computed:{
@@ -93,7 +94,27 @@ const app = new Vue ({
         selectContact(index){
             this.active = index; 
             this.contatti[this.active].classe = true
-            console.log(this.active)
         },
+        addNewMessage(){
+            if (this.newMessage != this.newMessage.length<0)
+            this.getMessages.push({
+            date: '10/01/2020 15:30:55',
+            message: this.newMessage,
+            status: 'sent'
+                })
+            this.newMessage = ''
+            this.AutomaticAnswer()          
+           },
+           AutomaticAnswer(){
+            setTimeout(function(){
+                this.getMessages.push({
+                    date: '10/01/2020 15:30:56',
+                    message: 'ok',
+                    status: 'received'
+                        })
+             }, 1000);
+            
+           },
+        
     },
 })
