@@ -139,13 +139,19 @@ h3{
     width: 100%;
     border: 1px solid #e7e7e7;
 }
-
+.contacts-box{
+    background-color: white;
+}
 .contacts-box li{
     padding: 10px 20px;
     display: flex;
     position: relative;
     border-bottom: 1px solid #e7e7e7;
-    background-color: #ffffff;
+}
+
+.selected{
+    background-color: #e7e7e7;
+
 }
 .contacts-box li:hover{
 background-color: rgba(233,235,235,255);
