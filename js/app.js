@@ -4,6 +4,7 @@ let contatti = [
     name: 'Sara',
     avatar: './img/myAvatar-2.png',
     visible: true,
+    id: 1,
     messages: [
     {
     date: '10/01/2020 15:30:55',
@@ -27,6 +28,7 @@ let contatti = [
     name: 'Fabio',
     avatar: './img/—Pngtree—user vector avatar_4830521.png',
     visible: true,
+    id: 2,
     messages: [
     {
     date: '20/03/2020 16:30:00',
@@ -49,6 +51,7 @@ let contatti = [
     name: 'Marco',
     avatar: './img/avatar_5.jpg',
     visible: true,
+    id: 3,
     messages: [
     {
     date: '20/03/2020 16:30:00',
@@ -75,11 +78,15 @@ const app = new Vue ({
     el: '#root',
     data: {
         contatti,
+        active: 0
     },
     computed:{
         
     },
     methods: {
-    
+        selectContact(index){
+            this.active = index;
+            console.log(this.active)
+        },
     },
 })
