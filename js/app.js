@@ -81,12 +81,18 @@ const app = new Vue ({
     data: {
         contatti,
         active: 0,
-        newMessage: ''
+        newMessage: '',
+        search: ''
     },
     computed:{
         getMessages: function(){
             return this.contatti[this.active].messages
-        }
+        },
+        filteredList() {
+            return this.contatti.filter(el => {
+              return el.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+          }
     },
     methods: {
         selectContact(index){

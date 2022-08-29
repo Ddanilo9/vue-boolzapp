@@ -42,12 +42,14 @@
                         </div>
                         <div class="search-bar">
                             <button type="submit"><i class="fa fa-search"></i></button>
-                            <input type="text" placeholder="  Cerca o inizia una nuova chat" name="search" class="search">
+                            <input
+                            v-model="search"
+                             type="text" placeholder="  Cerca o inizia una nuova chat" name="search" class="search">
                         </div>
                         
                         <div class="contacts-box">
                             <ul>
-                                <template v-for="(contatto,i) in contatti">
+                                <template v-for="(contatto,i) in filteredList">
                                     <li @click="selectContact(i)"
                                     :class="[i != active ? '' : 'selected']">
                                     <img class="background-circle" :src="contatto.avatar" alt="">
