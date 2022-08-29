@@ -215,7 +215,7 @@ background-color: rgba(233,235,235,255);
 }
 
 .messages {
-    padding: 40px 60px;
+    padding: 12px 64px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -229,10 +229,12 @@ background-color: rgba(233,235,235,255);
 
 .message.sent{
     align-self: flex-end;
-    background-color: #f5f9ba;
+    background-color: #abf1bf;
+    width: 50%;
 }
 
 .message.received{
     align-self: flex-start;
     background-color: white;
+    width: 50%;
 }

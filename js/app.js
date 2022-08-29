@@ -8,17 +8,17 @@ let contatti = [
     messages: [
     {
     date: '10/01/2020 15:30:55',
-    message: 'Hai portato a spasso il cane?',
+    message: 'Ciao,hai portato a spasso il cane?',
     status: 'sent'
     },
     {
     date: '10/01/2020 15:50:00',
-    message: 'Ricordati di stendere i panni',
+    message: 'ah,dopo ricordati anche di stendere i panni',
     status: 'sent'
     },
     {
     date: '10/01/2020 16:15:22',
-    message: 'Tutto fatto!',
+    message: 'Ook,appena torno a casa lo farò!',
     status: 'received'
     }
     ],
@@ -32,17 +32,17 @@ let contatti = [
     messages: [
     {
     date: '20/03/2020 16:30:00',
-    message: 'Ciao come stai?',
+    message: 'Ciao come stai Fabio?',
     status: 'sent'
     },
     {
     date: '20/03/2020 16:30:55',
-    message: 'Bene grazie! Stasera ci vediamo?',
+    message: 'Bene grazie! Magari stasera possiamo vederci per un aperitivo, cosa dici??',
     status: 'received'
     },
     {
     date: '20/03/2020 16:35:00',
-    message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+    message: 'Mi piacerebbe ma questa sera proprio non posso, magari sabato sera..',
     status: 'sent'
     }
     ],
@@ -55,17 +55,17 @@ let contatti = [
     messages: [
     {
     date: '20/03/2020 16:30:00',
-    message: 'Ciao come stai?',
+    message: 'Ehi allora come è stato?',
     status: 'sent'
     },
     {
     date: '20/03/2020 16:30:55',
-    message: 'Bene grazie! Stasera ci vediamo?',
+    message: 'Bene, dai pensavo fossero più complicate le domande però tutto bene!',
     status: 'received'
     },
     {
     date: '20/03/2020 16:35:00',
-    message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+    message: 'Ottimo, meglio così allora!',
     status: 'sent'
     }
     ],
@@ -73,7 +73,7 @@ let contatti = [
 
 ]
    
-
+// console.log(contatti[0].messages[0])
 const app = new Vue ({
     el: '#root',
     data: {
@@ -81,7 +81,10 @@ const app = new Vue ({
         active: 0
     },
     computed:{
-        
+        getMessages: function(){
+            return this.contatti[this.active].messages
+            
+        }
     },
     methods: {
         selectContact(index){

@@ -48,7 +48,8 @@
                         <div class="contacts-box">
                             <ul>
                                 <template v-for="(contatto,i) in contatti">
-                                    <li @click="selectContact(i)">
+                                    <li @click="selectContact(i)"
+                                    :class="''">
                                     <img class="background-circle" :src="contatto.avatar" alt="">
                                     <div class="user-chat-info" data-="">
                                         <h3>{{contatto.name}}</h3>
@@ -65,10 +66,12 @@
 
                 <div class="col-2">
                     <div class="header-chat">
-                        <div class="info-chat">
-                            <img class="background-circle" src="./img/myAvatar-2.png" alt="">
+                        <div v-for="(contatto,i) in contatti"
+                        v-if="i == active"
+                        class="info-chat">
+                            <img class="background-circle" :src="contatto.avatar">
                                 <div>
-                                    <h3>Sara</h3>
+                                    <h3>{{contatto.name}}</h3>
                                     <p>Ultimo accesso oggi alle 12:00</p>
                                 </div> 
                         </div>
@@ -78,13 +81,16 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
+                    <!--********** messages*********** -->
                     <div class="box-chat">
-                        <div class="messages">
-                            <div class="message sent">
-                                ciao,come stai
+                        <div v-for="(items,i) in getMessages"
+                         
+                          class="messages">
+                            <div v-if="items.status == 'sent'" class="message sent">
+                                {{items.message}}
                             </div>
-                            <div class="message received">
-                                sto bene
+                            <div v-if="items.status == 'received'" class="message received">
+                                {{items.message}}
                             </div>
                         </div>
                      </div>
