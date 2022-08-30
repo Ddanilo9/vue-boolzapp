@@ -8,47 +8,47 @@ let contatti = [
     classe: false,
     messages: [
     {
-    date: '10/01/2020 15:30:55',
+    date: '15:30',
     message: 'Ciao,hai portato a spasso il cane?',
     status: 'sent'
     },
     {
-    date: '10/01/2020 15:50:00',
+    date: '15:50',
     message: 'ah,dopo ricordati anche di stendere i panni 😅',
     status: 'sent'
     },
     {
-    date: '10/01/2020 16:15:22',
+    date: '16:15',
     message: 'Ook,appena torno a casa lo farò! 😎',
     status: 'received'
     },
     {
-    date: '10/01/2020 15:50:00',
+    date: '15:50',
     message: 'Tu dove sei adesso?',
     status: 'sent'
     },
     {
-    date: '10/01/2020 16:15:22',
+    date: '16:15',
     message: 'Sono in città',
     status: 'received'
     },
     {
-    date: '10/01/2020 15:50:00',
+    date: '15:50',
     message: 'ok fammi sapere a che ora torni',
     status: 'sent'
     },
     {
-    date: '10/01/2020 16:15:22',
+    date: '16:15',
     message: 'tra 30 min circa',
     status: 'received'
     },
     {
-    date: '10/01/2020 16:15:22',
+    date: '16:15',
     message: 'Prima ho incontrato anche Marco, mi ha detto che ti saluta 😁',
     status: 'received'
     },
     {
-    date: '10/01/2020 16:15:22',
+    date: '16:15',
     message: 'è da tanto che non lo vedo, magari gli scrivo la prossima volta 😁',
     status: 'sent'
     },
@@ -63,17 +63,17 @@ let contatti = [
     classe: false,
     messages: [
     {
-    date: '20/03/2020 16:30:00',
+    date: '16:30',
     message: 'Ciao come stai Fabio?',
     status: 'sent'
     },
     {
-    date: '20/03/2020 16:30:55',
+    date: '16:30',
     message: 'Bene grazie! Magari stasera possiamo vederci per un aperitivo, cosa dici??',
     status: 'received'
     },
     {
-    date: '20/03/2020 16:35:00',
+    date: '16:35',
     message: 'Mi piacerebbe ma questa sera proprio non posso, magari sabato sera..',
     status: 'sent'
     }
@@ -86,17 +86,17 @@ let contatti = [
     id: 2,
     messages: [
     {
-    date: '20/03/2020 16:30:00',
+    date: '16:30',
     message: 'Ehi allora come è stato?',
     status: 'sent'
     },
     {
-    date: '20/03/2020 16:30:55',
+    date: '16:30',
     message: 'Bene, dai pensavo fossero più complicate le domande però tutto bene!',
     status: 'received'
     },
     {
-    date: '20/03/2020 16:35:00',
+    date: '16:35',
     message: 'Ottimo, meglio così allora!',
     status: 'sent'
     }
@@ -113,7 +113,9 @@ const app = new Vue ({
         active: 0,
         newMessage: '',
         search: '',
-        timestamp: ''
+        timestamp: '',
+        lastMessage: '',
+        lastIndexArray: ''
     },
     computed:{
         getMessages: function(){
@@ -123,7 +125,12 @@ const app = new Vue ({
             return this.contatti.filter(el => {
               return el.name.toLowerCase().includes(this.search.toLowerCase())
             })
-          }
+          },
+        filteredLastMessage(){
+            return this.contatti.filter(e => {
+                return el.messages
+            })
+        }
     },
     methods: {
         selectContact(index){
@@ -131,34 +138,36 @@ const app = new Vue ({
             this.contatti[this.active].classe = true
         },
         addNewMessage(){
-            if (this.newMessage != this.newMessage.length<0)
+            if (this.newMessage != this.newMessage.length<0) {
             this.getMessages.push({
-            date: this.timestamp,
+            date: this.currentDate(),
             message: this.newMessage,
-            status: 'sent'
-                })
+            status: 'sent',
+            })
             this.newMessage = ''
-            this.AutomaticAnswer()          
+            this.AutomaticAnswer()      
+            }
         },
         AutomaticAnswer(){
             setTimeout(() => {
                 this.getMessages.push({
-                    date: this.timestamp,
+                    date: this.currentDate(),
                     message: 'ok',
                     status: 'received'
                         })
              }, 1000);
         }, 
-        // created() {
-        //     setInterval(this.getNow, 1000);
-        // },
-        getNow: function() {
-            const today = new Date();
-            const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            const dateTime = date +' '+ time;
-            this.timestamp = dateTime;
+        currentDate() {
+            const current = new Date();
+            const date = `${current.getHours()}:${current.getMinutes()}`;
+            return date
+        },
+        autoScrolling() {
+        const autoScroll = document.querySelector('.box-chat')
+        autoScroll.scrollTo(0,autoScroll.scrollHeight);
+        
         }
-    },
+    },  
     
 })
+// lastIndexArray = contatti[0].messages.length - 1

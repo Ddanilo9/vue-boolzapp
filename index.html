@@ -55,7 +55,7 @@
                                     <img class="background-circle" :src="contatto.avatar" alt="">
                                     <div class="user-chat-info" data-="">
                                         <h3>{{contatto.name}}</h3>
-                                        <p>Ultimo messaggio inviato</p>
+                                        <p>ultimo messaggio</p>
                                         <span>12:00</span>
                                     </div>
                                     </li>
@@ -84,17 +84,17 @@
                         </div>
                     </div>
                     <!--********** messages*********** -->
-                    <div class="box-chat">
+                    <div class="box-chat" @click="autoScrolling()">
                         <div v-for="(items,i) in getMessages"
                          
                           class="messages">
                             <div v-if="items.status == 'sent'" class="message sent">
                                 {{items.message}}
-                                <span>12:00</span>
+                                <span>{{items.date}}</span>
                             </div>
                             <div v-if="items.status == 'received'" class="message received">
                                 {{items.message}}
-                                <span>{{timestamp}}</span>
+                                <span>{{items.date}}</span>
                             </div>
                         </div>
                      </div>
@@ -102,6 +102,7 @@
                         <i class="fa-solid fa-face-laugh"></i>
                         <input
                         v-on:keyup.enter="addNewMessage"
+                        v-on:keypress.enter="autoScrolling()"
                         v-model="newMessage" 
                         type="text" placeholder="  Scrivi un messaggio">
                         <i class="fa-solid fa-microphone"></i>
