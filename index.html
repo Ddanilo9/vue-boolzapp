@@ -90,9 +90,11 @@
                           class="messages">
                             <div v-if="items.status == 'sent'" class="message sent">
                                 {{items.message}}
+                                <span>12:00</span>
                             </div>
                             <div v-if="items.status == 'received'" class="message received">
                                 {{items.message}}
+                                <span>{{timestamp}}</span>
                             </div>
                         </div>
                      </div>

@@ -14,14 +14,44 @@ let contatti = [
     },
     {
     date: '10/01/2020 15:50:00',
-    message: 'ah,dopo ricordati anche di stendere i panni',
+    message: 'ah,dopo ricordati anche di stendere i panni 😅',
     status: 'sent'
     },
     {
     date: '10/01/2020 16:15:22',
-    message: 'Ook,appena torno a casa lo farò!',
+    message: 'Ook,appena torno a casa lo farò! 😎',
     status: 'received'
-    }
+    },
+    {
+    date: '10/01/2020 15:50:00',
+    message: 'Tu dove sei adesso?',
+    status: 'sent'
+    },
+    {
+    date: '10/01/2020 16:15:22',
+    message: 'Sono in città',
+    status: 'received'
+    },
+    {
+    date: '10/01/2020 15:50:00',
+    message: 'ok fammi sapere a che ora torni',
+    status: 'sent'
+    },
+    {
+    date: '10/01/2020 16:15:22',
+    message: 'tra 30 min circa',
+    status: 'received'
+    },
+    {
+    date: '10/01/2020 16:15:22',
+    message: 'Prima ho incontrato anche Marco, mi ha detto che ti saluta 😁',
+    status: 'received'
+    },
+    {
+    date: '10/01/2020 16:15:22',
+    message: 'è da tanto che non lo vedo, magari gli scrivo la prossima volta 😁',
+    status: 'sent'
+    },
     ],
     },
 
@@ -82,7 +112,8 @@ const app = new Vue ({
         contatti,
         active: 0,
         newMessage: '',
-        search: ''
+        search: '',
+        timestamp: ''
     },
     computed:{
         getMessages: function(){
@@ -102,21 +133,32 @@ const app = new Vue ({
         addNewMessage(){
             if (this.newMessage != this.newMessage.length<0)
             this.getMessages.push({
-            date: '10/01/2020 15:30:55',
+            date: this.timestamp,
             message: this.newMessage,
             status: 'sent'
                 })
             this.newMessage = ''
             this.AutomaticAnswer()          
-           },
+        },
         AutomaticAnswer(){
             setTimeout(() => {
                 this.getMessages.push({
-                    date: '10/01/2020 15:30:56',
+                    date: this.timestamp,
                     message: 'ok',
                     status: 'received'
                         })
              }, 1000);
-        }    
+        }, 
+        // created() {
+        //     setInterval(this.getNow, 1000);
+        // },
+        getNow: function() {
+            const today = new Date();
+            const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            const dateTime = date +' '+ time;
+            this.timestamp = dateTime;
+        }
     },
+    
 })
