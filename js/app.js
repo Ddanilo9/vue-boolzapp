@@ -102,6 +102,29 @@ let contatti = [
     }
     ],
     },
+    {
+    name: 'Paolo',
+    avatar: './img/avatar_8.jpg',
+    visible: true,
+    id: 2,
+    messages: [
+    {
+    date: '16:30',
+    message: 'Ehi allora come è stato?',
+    status: 'sent'
+    },
+    {
+    date: '16:30',
+    message: 'Bene, dai pensavo fossero più complicate le domande però tutto bene!',
+    status: 'received'
+    },
+    {
+    date: '16:35',
+    message: 'Ottimo, meglio così allora!',
+    status: 'sent'
+    }
+    ],
+    },
 
 ]
    
@@ -166,8 +189,11 @@ const app = new Vue ({
         const autoScroll = document.querySelector('.box-chat')
         autoScroll.scrollTo(0,autoScroll.scrollHeight);
         
-        }
+        },
     },  
+    mounted() {
+        this.autoScrolling()
+    },
     
 })
 // lastIndexArray = contatti[0].messages.length - 1
