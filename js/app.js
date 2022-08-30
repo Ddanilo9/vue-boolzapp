@@ -3,9 +3,6 @@ let contatti = [
     {
     name: 'Sara',
     avatar: './img/myAvatar-2.png',
-    visible: true,
-    id: 0,
-    classe: false,
     messages: [
     {
     date: '15:30',
@@ -58,22 +55,20 @@ let contatti = [
     {
     name: 'Fabio',
     avatar: './img/—Pngtree—user vector avatar_4830521.png',
-    visible: true,
     id: 1,
-    classe: false,
     messages: [
     {
-    date: '16:30',
+    date: '16:10',
     message: 'Ciao come stai Fabio?',
     status: 'sent'
     },
     {
-    date: '16:30',
+    date: '16:11',
     message: 'Bene grazie! Magari stasera possiamo vederci per un aperitivo, cosa dici??',
     status: 'received'
     },
     {
-    date: '16:35',
+    date: '16:23',
     message: 'Mi piacerebbe ma questa sera proprio non posso, magari sabato sera..',
     status: 'sent'
     }
@@ -82,16 +77,14 @@ let contatti = [
     {
     name: 'Marco',
     avatar: './img/avatar_5.jpg',
-    visible: true,
-    id: 2,
     messages: [
     {
-    date: '16:30',
+    date: '16:10',
     message: 'Ehi allora come è stato?',
     status: 'sent'
     },
     {
-    date: '16:30',
+    date: '16:20',
     message: 'Bene, dai pensavo fossero più complicate le domande però tutto bene!',
     status: 'received'
     },
@@ -105,11 +98,9 @@ let contatti = [
     {
     name: 'Paolo',
     avatar: './img/avatar_8.jpg',
-    visible: true,
-    id: 2,
     messages: [
     {
-    date: '16:30',
+    date: '16:29',
     message: 'Ehi allora come è stato?',
     status: 'sent'
     },
@@ -119,7 +110,7 @@ let contatti = [
     status: 'received'
     },
     {
-    date: '16:35',
+    date: '16:36',
     message: 'Ottimo, meglio così allora!',
     status: 'sent'
     }
@@ -128,7 +119,6 @@ let contatti = [
 
 ]
    
-// console.log(contatti[0].messages[0])
 const app = new Vue ({
     el: '#root',
     data: {
@@ -137,8 +127,6 @@ const app = new Vue ({
         newMessage: '',
         search: '',
         timestamp: '',
-        lastMessage: '',
-        lastIndexArray: ''
     },
     computed:{
         getMessages: function(){
@@ -149,16 +137,13 @@ const app = new Vue ({
               return el.name.toLowerCase().includes(this.search.toLowerCase())
             })
           },
-        filteredLastMessage(){
-            return this.contatti.filter(e => {
-                return el.messages
-            })
-        }
     },
     methods: {
+        getLastMessage(contact) {
+            return contact.messages[contact.messages.length -1]
+        },
         selectContact(index){
             this.active = index; 
-            this.contatti[this.active].classe = true
         },
         addNewMessage(){
             if (this.newMessage != this.newMessage.length<0) {
@@ -196,4 +181,4 @@ const app = new Vue ({
     },
     
 })
-// lastIndexArray = contatti[0].messages.length - 1
+
